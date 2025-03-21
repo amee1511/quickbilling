@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Bill Processing</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+        
+        body {
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+        }
+        h2 {
+            font-size: 2em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: -webkit-linear-gradient(left, #ffdd57, #ff4e50);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .checkmark {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #28a745;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin: 20px auto;
+            opacity: 0;
+            transform: scale(0.5);
+            animation: fadeInScale 0.6s ease-out 1s forwards;
+        }
+        .checkmark::after {
+            content: '\2713';
+            font-size: 50px;
+            color: white;
+        }
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Processing Your Bill</h2>
+        <div class="checkmark"></div>
+        <p id="bill-message">Your bill will be ready after <span id="time-display"></span>.</p>
+    </div>
+
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const time = urlParams.get('time');
+        const unit = urlParams.get('unit');
+        
+        // Display the message
+        if (time && unit) {
+            document.getElementById('time-display').innerText = `${time} ${unit}`;
+        } else {
+            document.getElementById('time-display').innerText = "a few moments";
+        }
+    </script>
+</body>
+</html>

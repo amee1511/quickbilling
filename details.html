@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Billing Details</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+        
+        body {
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 400px;
+        }
+        h2 {
+            font-size: 1.5em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: -webkit-linear-gradient(left, #ffdd57, #ff4e50);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            font-size: 1em;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 95%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            background: white;
+        }
+        button {
+            background: #764ba2;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 15px;
+            transition: background 0.3s, transform 0.3s;
+            color: white;
+        }
+        button:hover {
+            background: #667eea;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Billing Details</h2>
+        <form action="request.html" method="GET">
+            <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first-name" required>
+            </div>
+            <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last-name" required>
+            </div>
+            
+            <h2>Contact Details</h2>
+            <div class="form-group">
+                <label for="mobile">Mobile Number</label>
+                <input type="tel" id="mobile" name="mobile" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email ID</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <h2>Bill Ready After</h2>
+            <div class="form-group">
+                <label for="time">Select Time</label>
+                <div style="display: flex; gap: 10px;">
+                    <input type="number" id="time" name="time" min="0" required>
+                    <select id="time-unit" name="unit" required>
+                        <option value="hours">Hours</option>
+                        <option value="minutes">Minutes</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.querySelector("form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent actual form submission
+
+            // Get values from input fields
+            const time = document.getElementById("time").value;
+            const unit = document.getElementById("time-unit").value;
+
+            // Redirect to request.html with time details in URL
+            window.location.href = `request.html?time=${time}&unit=${unit}`;
+        });
+    </script>
+</body>
+</html>
