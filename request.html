@@ -22,7 +22,7 @@
             align-items: center;
         }
         .container {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
@@ -40,7 +40,7 @@
             margin-bottom: 20px;
         }
         p {
-            font-size: 1.2em;
+            font-size: 1em;
             margin-top: 10px;
             background: rgba(255, 255, 255, 0.2);
             padding: 15px;
@@ -75,6 +75,21 @@
                 transform: scale(1);
             }
         }
+        .contact {
+            margin-top: 20px;
+            font-size: 0.9em;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            color: #ffdd57;
+            font-weight: 400;
+        }
+        .contact h3 {
+            margin: 0 0 10px;
+            font-size: 1em;
+            color: #ffdd57;
+        }
     </style>
 </head>
 <body>
@@ -82,6 +97,11 @@
         <h2>Processing Your Bill</h2>
         <div class="checkmark"></div>
         <p id="bill-message">Your bill will be ready after <span id="time-display"></span>.</p>
+        <div class="contact">
+            <h3>Contact Us</h3>
+            <p>📧 Mail: <a href="mailto:xyz@gmail.com" style="color: #ffdd57; text-decoration: none;">xyz@gmail.com</a></p>
+            <p>📞 Mobile No.: <a href="tel:9054696491" style="color: #ffdd57; text-decoration: none;">90546 96491</a></p>
+        </div>
     </div>
 
     <script>
